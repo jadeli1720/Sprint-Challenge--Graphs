@@ -123,29 +123,30 @@ def search(starting_room):
     # while the length of mapDictionary ! = length of room graph
     while len(mapDictionary) != len(room_graph):
         # print("current room", current_room.id)
-        # if room id is nor in mapDictionary:
+        # if room id is not in mapDictionary:
         if room_id not in mapDictionary:
-            # Iterate to  find the possible exits:
+            # Iterate to find the possible exits:
             for i in current_room.get_exits():
                 # add the "?" in the room dictionary?
                 # print("I", i) # prints n direction
-                room_dict = '?'
-                # print("room dictionary", room_dict) 
+                room_dict[i] = '?'
+                print("room dictionary", room_dict[i]) 
             if traversal_path:
                 prevRoom = opp_directions[traversal_path[-1]]
                 room_dict[prevRoom] = prevRoom
-            # add the unexplored room to the room id
+            # add the unexplored "/" room to the room id
             mapDictionary[room_id] = room_dict
 
         else:
             break
             # print("Room dictionary",room_dict)
-
+        # What next?
+        # We see there is an unexplored '?'
         
 
 print("Search Function", search(room_graph))
 print("------------------")
-print("Map Graph Dictionary", mapDictionary) #{0: '?'}
+print("Map Graph Dictionary", mapDictionary) #{0: {'n': '?'}}
 print("------------------")
 print("Traversal path", traversal_path)
 print("------------------")
