@@ -40,45 +40,6 @@ mapDictionary = {}
 # vertex = current_room
 # edges = paths - directions?
 
-
-# Try BFS/t --> searching paths to the maze?
-
-# def bfs(starting_room_id):
-#     # Create a queue
-#     q = Queue()
-#     # Enqueue starting point in a list to start path = starting_room_id
-#     q.enqueue([starting_room_id])
-#     visited = set() 
-
-#     # While there is stuff in the queue
-#     while q.size()> 0:
-#         # pop/grab the first available path
-#         path = q.dequeue()
-#         # current_room = last item in the path
-#         current_room = path[-1]
-#         print("current room", current_room, "\n")
-#         # visited.add(current_room)
-#         # print('Add to visited', visited.add(current_room))
-#         # If not visited
-#         # if current_room not in visited:
-#         #     visited[current_room] = path
-        
-#         # For each...edge?...direction in the map graph's current_room
-#         # direction == iterator == i ==[]
-#         for direction in mapDictionary[current_room]:
-#             # search for a room with a "?"
-#             print('MapGraph Directions', mapDictionary[current_room][direction], "\n")
-#             if mapDictionary[current_room][direction] == '?':
-#                 # return to the available paths
-#                 return path
-#             elif mapDictionary[current_room][direction] not in visited:
-#                 # create a new path to append the edge/direction
-#                 new_path = list(path)
-#                 new_path.append(mapDictionary[current_room][direction])
-#                 print("Appending direction", new_path, "\n")
-#                 q.enqueue(new_path)
-
-#     print("Visited", visited, "\n")
             
 # DFS/t --> Generating Maze???
 # need to connect/ compare to room_graph? --> ancestors?
@@ -139,9 +100,10 @@ def search(starting_room):
 
         else:
             break
-            # print("Room dictionary",room_dict)
+
         # What next?
         # We see there is an unexplored '?'
+        # 
         
 
 print("Search Function", search(room_graph))
