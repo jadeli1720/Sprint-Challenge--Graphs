@@ -110,7 +110,7 @@ move ->           dir : r0, dir : exit?, dir : exit?
 
 def search(starting_room): # --> dft
     # rooms players have been to
-    visitedRoom = 0
+    visitedRoom = set()
     # opposing cardinal  directions
     opp_directions = {'n':'s', 's':'n', 'e':'w', 'w':'e'}
 
@@ -170,27 +170,31 @@ def search(starting_room): # --> dft
         # print(len(possible_exit)) #Gives us a length of 1
         # If there is an unknown direction....
         if len(possible_exits) > 0:
-            # room_direction = current_room.get_room_in_direction(direction)
-            # print('room direction', room_direction)
-
             random.shuffle(possible_exits)
             # print(f'{possible_exits[0]} is the next possible direction')
             # direction = the possible direction[0]
             direction = possible_exits[0]
-            print('We moved',f'{direction}')
+            # print('We moved',f'{direction}')
             
             traversal_path.append(direction)
-            print('traversal path in if', traversal_path)
+            # print('traversal path in if', traversal_path)
             # move the player in the direction using travel function
-            player.travel(direction)
+
+            # for move in traversal_path:
+            # player.travel(move)
+            # visited_rooms.add(player.current_room)
+
+            for move in traversal_path:
+                player.travel(move)
+                # print("move", move)
+                move = player.current_room
+                print("current room", move)
+            mapDictionary
             
-            # move_connection = player.current_room.connect_rooms(direction,  )
-            # print("move connection", move_connection)
+                # visitedRoom.add(current_room)
+                # print("visited room", visitedRoom)
+
             
-            # print("room dict check", room_dict)
-            # move = player.current_room.connect_rooms(direction, current_room )
-            # print("players move", move)
-            # traversal_path.append(move)
         else:
             # DO SOMETHING!
             # BFS to search for next exit
