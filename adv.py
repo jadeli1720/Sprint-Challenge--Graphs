@@ -170,19 +170,22 @@ def search(starting_room): # --> dft
         # print(len(possible_exit)) #Gives us a length of 1
         # If there is an unknown direction....
         if len(possible_exits) > 0:
-            room_direction = current_room.get_room_in_direction(direction)
-            print('room direction', room_direction)
+            # room_direction = current_room.get_room_in_direction(direction)
+            # print('room direction', room_direction)
 
             random.shuffle(possible_exits)
             # print(f'{possible_exits[0]} is the next possible direction')
             # direction = the possible direction[0]
             direction = possible_exits[0]
             print('We moved',f'{direction}')
-            traversal_path.append(direction)
             
+            traversal_path.append(direction)
+            print('traversal path in if', traversal_path)
             # move the player in the direction using travel function
             player.travel(direction)
             
+            # move_connection = player.current_room.connect_rooms(direction,  )
+            # print("move connection", move_connection)
             
             # print("room dict check", room_dict)
             # move = player.current_room.connect_rooms(direction, current_room )
