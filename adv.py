@@ -188,8 +188,10 @@ def search(starting_room): # --> dft
                 player.travel(move)
                 # print("move", move)
                 move = player.current_room
-                print("current room", move)
-            mapDictionary
+                print("current room", move.id)
+                # player.current_room.connect_rooms(direction, move.id )
+                print("new room", player.current_room.connect_rooms(direction, move.id ))
+            # mapDictionary
             
                 # visitedRoom.add(current_room)
                 # print("visited room", visitedRoom)
