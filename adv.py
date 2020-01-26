@@ -45,8 +45,8 @@ world = World()
 
 
 # You may uncomment the smaller graphs for development and testing purposes.
-map_file = "maps/test_line.txt"
-# map_file = "maps/test_cross.txt"
+# map_file = "maps/test_line.txt"
+map_file = "maps/test_cross.txt"
 # map_file = "maps/test_loop.txt"
 # map_file = "maps/test_loop_fork.txt"
 # map_file = "maps/main_maze.txt"
@@ -146,6 +146,7 @@ def search(starting_room): # --> dft
                 room_dict[prevRoom] = prevRoom
             # add the unexplored "/" room to the room id
             mapDictionary[room_id] = room_dict
+            print('map dictionary:', mapDictionary[room_id])
 
         else:
             # do we need to do something other than break the loop?
@@ -169,7 +170,7 @@ def search(starting_room): # --> dft
         # Can we use the above to discover/ travel to that room?
         # print(len(possible_exit)) #Gives us a length of 1
         # If there is an unknown direction....
-        if len(possible_exits) > 0:
+        if len(possible_exits) != 0:
             random.shuffle(possible_exits)
             # print(f'{possible_exits[0]} is the next possible direction')
             # direction = the possible direction[0]
@@ -188,11 +189,14 @@ def search(starting_room): # --> dft
                 player.travel(move)
                 # print("move", move)
                 move = player.current_room
-                print('move stuff', move)
-                print("current room", player.current_room.get_exits())
-                # player.current_room.connect_rooms(direction, move.id )
-                # print("new room", player.current_room.connect_rooms(direction, move.id ))
-            # mapDictionary
+                # print('move stuff', move)
+                # print("current room", player.current_room.get_exits())
+                exits = player.current_room.get_exits()
+                print("exits", exits[0])
+            # print("adding exits", traversal_path.append(exits[0]))
+                # mapDictionary[room_id] = room_dict
+            # mapDictionary[ro]
+            traversal_path.append(exits[0])
             
                 # visitedRoom.add(current_room)
                 # print("visited room", visitedRoom)
