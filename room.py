@@ -29,6 +29,7 @@ class Room:
     def get_exits_string(self):
         return f"Exits: [{', '.join(self.get_exits())}]"
     def connect_rooms(self, direction, connecting_room):
+        # print("From room class", direction, connecting_room)
         if direction == "n":
             self.n_to = connecting_room
             connecting_room.s_to = self
@@ -57,3 +58,4 @@ class Room:
             return None
     def get_coords(self):
         return [self.x, self.y]
+
